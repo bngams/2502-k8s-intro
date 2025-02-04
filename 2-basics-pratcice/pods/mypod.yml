@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  namespace: mynamespaceexercice1
+spec:
+  containers:
+  - name: mycontainer-1
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+  - name: mycontainer-2
+    image: alpine:latest
+    command: ["watch", "wget", "-qO-", "localhost"]

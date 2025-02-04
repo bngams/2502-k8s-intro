@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod # signature 
+metadata:
+  namespace: whoami # signature 
+  name: whoami # signature 
+  labels:
+    name: whoami
+
+spec:
+  containers:
+  - name: whoami
+    image: traefik/whoami # hub.docker.com 
+    resources:
+      limits:
+        memory: "164Mi"
+        cpu: "500m" 
+    ports:
+      - containerPort: 80
