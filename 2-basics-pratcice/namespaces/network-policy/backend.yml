@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: demo
+    tiers: back
+  name: back
+spec:
+  containers:
+  - image: lucj/backend:0.1
+    name: back
+    ports:
+    - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: demo
+    tiers: back
+  name: back
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: demo
+    tiers: back
